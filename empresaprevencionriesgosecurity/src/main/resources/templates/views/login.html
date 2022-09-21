@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout.html :: html_head">
+<meta charset="UTF-8">
+</head>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
+
+	<div>
+		<div th:insert="fragments/layout :: navbar"></div>
+
+		<main role="main" class="my-5">
+			<div id="login">
+				<div class="container">
+					<div class="row justify-content-center align-items-center">
+						<form id="login-form" class="form" th:action="@{/logincheck}"
+							method="post">
+							<h3 class="text-center text-info mb-5">Login</h3>
+							<div class="form-group">
+								<label for="nick" class="text-info">Nombre de usuario
+									(nick):</label><br> <input type="text" name="nick" id="nick"
+									class="form-control" maxlength="20" pattern="[A-Za-z]{2}.*"
+									title="Debe contener al menos 2 letras al inicio" required>
+							</div>
+							<div class="form-group">
+								<label for="password1" class="text-info">Contraseña:</label><br>
+								<input type="password" name="password1" id="password1"
+									class="form-control" minlength="3" maxlength="20" required>
+							</div>
+							<input type="submit" name="submit" class="btn btn-info btn-md"
+								value="enviar">
+
+							<div id="register-link" class="text-right">
+								<a href="#" class="text-info">Register here</a>
+							</div>
+						</form>
+					</div>
+					<!-- Alert no logeado -->
+					<div class="text-center my-3">
+						<div th:if="${postResponse}"
+							class="alert alert-danger alert-dismissible fade show"
+							role="alert">
+							Error en nick o password, intente nuevamente.
+							<button type="button" class="close" data-dismiss="alert"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<!-- FOOTER y SCRIPT -->
+	<div th:insert="fragments/layout :: footer"></div>
+	<th:block th:insert="fragments/layout :: body/script"></th:block>
+
+</body>

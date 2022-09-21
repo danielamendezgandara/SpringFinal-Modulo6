@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout.html :: html_head">
+<meta charset="UTF-8">
+</head>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
+
+	<div>
+		<div th:insert="fragments/layout :: navbar"></div>
+
+		<header>
+			<!-- Main jumbotron for a primary marketing message or call to action -->
+			<div class="jumbotron">
+				<div class="container">
+					<h1 class="display-3">RiskPrevention</h1>
+					<h4>Estamos para protegerlo.</h4>
+					<br>
+					<p>Somos una empresa dedicada a ofrecer la mejor asesoría en
+						prevención de riesgos para nuestros clientes.</p>
+					<p>
+						<a class="btn btn-primary btn-lg" href="#" role="button">Conocer
+							más &raquo;</a>
+					</p>
+				</div>
+			</div>
+		</header>
+
+		<main class="container my-5" role="main">
+			<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+				<div class="col py-3">
+					<div class="card h-100 mx-auto" style="width: 22rem;">
+						<img
+							src="https://cdn0.knowledgecity.com/opencontent/courses/previews/CMP1285/800--v112234.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Servicios de Ciberseguridad</h5>
+							<p class="card-text">
+								<strong>Expertos en ciberseguridad</strong><br /> Soluciones
+								innovadoras diseñadas para proteger sus datos e infraestructura
+								IT contra amenazas internas y externas. Ofrecemos soluciones de
+								ciberseguridad confiables y comprometidas en potenciar y
+								proteger su negocio, acompañamos los proyectos con líderes del
+								mercado y servicios profesionales brindados por expertos.
+							</p>
+							<a href="#" class="btn btn-primary">Más información</a>
+						</div>
+					</div>
+				</div>
+				<div class="col py-3">
+					<div class="card h-100 mx-auto" style="width: 22rem;">
+						<img
+							src="https://cdn0.knowledgecity.com/opencontent/courses/previews/CMP1285/800--v112234.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Consulting</h5>
+							<p class="card-text">
+								<strong>Asesoramiento eficaz e innovador</strong><br />
+								Soluciones diseñadas para brindar servicios de asesoramiento y
+								acompañamiento a través de calificados equipos de expertos en
+								los diversos aspectos de prevención de riesgos.
+							</p>
+							<a href="#" class="btn btn-primary">Más información</a>
+						</div>
+					</div>
+				</div>
+				<div class="col py-3">
+					<div class="card h-100 mx-auto" style="width: 22rem;">
+						<img
+							src="https://cdn0.knowledgecity.com/opencontent/courses/previews/CMP1285/800--v112234.jpg"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">Entrenamiento y concentización</h5>
+							<p class="card-text">
+								<strong>Mejores capacitaciones</strong><br /> Procedimiento de
+								trabajo seguro,Sistema de gestión en seguridad y salud
+								ocupacional,Reglamento interno de orden higiene y
+								seguridad,Calificación industrial,Estudios de extintores,entre
+								otros
+							</p>
+							<a href="#" class="btn btn-primary">Más información</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+	</div>
+
+<!-- FOOTER y SCRIPT -->
+	<div th:insert="fragments/layout :: footer"></div>
+	<th:block th:insert="fragments/layout :: body/script"></th:block>
+
+</body>
+</html>

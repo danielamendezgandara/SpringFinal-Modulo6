@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout.html :: html_head">
+<meta charset="UTF-8">
+</head>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
+
+	<div>
+		<div th:insert="fragments/layout :: navbar"></div>
+
+		<main role="main" class="container my-5">
+
+			<div class="container h-100">
+				<div class="my-5 text-center">
+					<h2>Editar Usuario</h2>
+					<h4>Exclusivo para administrativo</h4>
+				</div>
+
+				<!-- Alert en para edicion de usuario -->
+				<div class="text-center my-3">
+					<div th:if="${postResponse==true and respuestaEdicion==true}"
+						class="alert alert-success alert-dismissible fade show"
+						role="alert">
+						El usuario rut <span th:text="${rut}"></span> fue editado
+						exitosamente.
+						<button type="button" class="close" data-dismiss="alert"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div th:if="${postResponse==true and respuestaEdicion==false}"
+						class="alert alert-danger alert-dismissible fade show"
+						role="alert">
+						El usuario rut <span th:text="${rut}"></span> no se pudo editar.
+						<button type="button" class="close" data-dismiss="alert"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="row h-100 justify-content-center align-items-center">
+					<div class="col-md-8 order-md-1">
+						<h4 class="mb-3">
+							Editando a un usuario con perfil <i class="text-primary"><span
+								th:text="${usuarioEditar.getPerfilNombre()}"></span></i>
+						</h4>
+						<hr class="mb-4">
+						<form id="form__crear-usuario" th:action="@{/editarUsuario}"
+							class="needs-validation" method="post">
+
+							<!-- Datos en Comun perfiles -->
+							<div class="row">
+								<div class="col-lg-4 mb-3">
+									<label for="nick">Nombre usuario <span
+										class="text-muted">*</span></label> <input type="text"
+										class="form-control" id="nick" placeholder="nick" name="nick"
+										minlength="3" maxlength="20"
+										th:value="${usuarioEditar.getNick()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+								<div class="col-lg-4 mb-3">
+									<label for="password1">Password <span
+										class="text-muted">*</span></label> <input type="text"
+										class="form-control" id="password1" placeholder=""
+										name="password1" minlength="3" maxlength="8"
+										th:value="${usuarioEditar.getPassword1()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+								<div class="col-lg-4 mb-3">
+									<label for="rut">Rut <span class="text-muted">*</span></label>
+									<input type="text" class="form-control" id="rut"
+										placeholder="11.111.111-1" name="rut"
+										pattern="([1-9]|[1-9][0-9])\.[0-9]{3}?.[0-9]{3}-[0-9k]"
+										title="ejemplo: 11.111.111-1"
+										th:value="${usuarioEditar.getRut()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+
+								<div class="col-lg-4 mb-3">
+									<label for="nombres">Nombres <span class="text-muted">*</span></label>
+									<input type="text" class="form-control" id="nombres"
+										placeholder="" name="nombres" minlength="2" maxlength="49"
+										th:value="${usuarioEditar.getNombres()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+								<div class="col-lg-4 mb-3">
+									<label for="apellidos">Apellidos <span
+										class="text-muted">*</span></label> <input type="text"
+										class="form-control" id="apellidos" placeholder=""
+										name="apellidos" minlength="2" maxlength="49"
+										th:value="${usuarioEditar.getApellidos()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+								<div class="col-lg-4 mb-3">
+									<label for="fecha_de_nacimiento">Fecha de Nacimiento <span
+										class="text-muted">*</span></label> <input type="text"
+										class="form-control input-" id="fecha_de_nacimiento"
+										name="birthday"
+										th:value="${usuarioEditar.fechaFormatoFormulario()}" required>
+									<div class="invalid-feedback">Please enter a valid email
+										address for shipping updates.</div>
+								</div>
+							</div>
+
+							<hr class="mb-4">
+
+							<!-- Formulario Dinamicos -->
+							<div id="form-perfiles">
+								<!-- ADMIMNISTRATIVO -->
+								<div th:if="${usuarioEditar.getPerfilId()==1}"
+									id="form__administrativo">
+									<div class="row">
+										<div class="col-12 mt-2 d-flex justify-content-center">
+											<div class="form-group">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio"
+														name="perfil_id" id="perfil_1" value="1" checked>
+													<label class="form-check-label" for="perfil_1">Administrativo</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<hr class="mb-4">
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="area">Area </label> <input type="text"
+												class="form-control" id="area" placeholder="" name="area"
+												minlength="2" maxlength="99"
+												th:value="${usuarioEditar.getArea()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="experiencia_previa">Experiencia Previa</label> <input
+												type="text" class="form-control" id="experiencia_previa"
+												placeholder="" name="experiencia_previa" minlength="2"
+												maxlength="99"
+												th:value="${usuarioEditar.getExperienciaPrevia()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+									</div>
+								</div>
+								</c:if>
+
+								<!-- CLIENTE -->
+								<div th:if="${usuarioEditar.getPerfilId()==2}"
+									id="form__cliente">
+									<div class="row">
+										<div class="col-12 mt-2 d-flex justify-content-center">
+											<div class="form-group">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio"
+														name="perfil_id" id="perfil_2" value="2" checked>
+													<label class="form-check-label" for="perfil_2">Cliente</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<hr class="mb-4">
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="telefono">Teléfono </label> <input type="text"
+												class="form-control" id="telefono" placeholder=""
+												name="telefono" pattern="[0-9]{8,14}"
+												title="Debe ingresar al menos 8 digitos"
+												th:value="${usuarioEditar.getTelefono()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="email">Email <span class="text-muted">*</span></label>
+											<input type="email" class="form-control" id="email"
+												placeholder="" name="email"
+												th:value="${usuarioEditar.getEmail()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="afp_id">AFP <span class="text-muted">*</span></label>
+											<select class="custom-select" id="afp_id" name="afp_id">
+												<option value="1"
+													th:selected="${usuarioEditar.getAfpId() == 1}">afp
+													capital</option>
+												<option value="2"
+													th:selected="${usuarioEditar.getAfpId() == 2}">afp
+													provida</option>
+												<option value="3"
+													th:selected="${usuarioEditar.getAfpId() == 3}">afp
+													cuprum</option>
+												<option value="4"
+													th:selected="${usuarioEditar.getAfpId() == 4}">afp
+													habitad</option>
+												<option value="5"
+													th:selected="${usuarioEditar.getAfpId() == 5}">afp
+													plan vital</option>
+												<option value="6"
+													th:selected="${usuarioEditar.getAfpId() == 6}">afp
+													modelo</option>
+												<option value="7">afp uno</option>
+											</select>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="sistema_salud_id">Sistema de salud <span
+												class="text-muted">*</span></label> <select class="custom-select"
+												id="sistema_salud_id" name="sistema_salud_id">
+												<option value="1"
+													th:selected="${usuarioEditar.getSistemaSaludId()==1}">Fonasa</option>
+												<option value="2"
+													th:selected="${usuarioEditar.getSistemaSaludId()==2}">Isapre</option>
+											</select>
+										</div>
+										<div class="col-8 mb-3">
+											<label for="direccion">Dirección</label> <input type="text"
+												class="form-control" id="direccion" placeholder=""
+												name="direccion" minlength="2" maxlength="99"
+												th:value="${usuarioEditar.getDireccion()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+										<div class="col-lg-4 mb-3">
+											<label for="comuna">Comuna</label>
+											<div class="input-group mb-3">
+												<select class="custom-select" id="comuna" name="comuna">
+													<option value=""
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'')}">Seleccionar...</option>
+													<option value="Casablanca"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Casablanca')}">Casablanca</option>
+													<option value="Quilpué"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Quilpué')}">Quilpué</option>
+													<option value="Quintero"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Quintero')}">Quintero</option>
+													<option value="San Antonio"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'San Antonio')}">San
+														Antonio</option>
+													<option value="Santiago"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Santiago')}">Santiago</option>
+													<option value="Valparaíso"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Valparaíso')}">Valparaíso</option>
+													<option value="Viña del Mar"
+														th:selected="${#strings.equals(usuarioEditar.getComuna(),'Viña del Mar')}">Viña
+														del Mar</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-12 mb-3">
+											<label for="organizacion">Organización <span
+												class="text-muted">*</span></label> <input type="text"
+												class="form-control" id="organizacion" placeholder=""
+												name="organizacion" minlength="2" maxlength="99"
+												th:value="${usuarioEditar.getOrganizacion()}" required>
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- PROFESIONAL -->
+								<div th:if="${usuarioEditar.getPerfilId()==3}"
+									id="form__profesional">
+									<div class="row">
+										<div class="col-12 mt-2 d-flex justify-content-center">
+											<div class="form-group">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input" type="radio"
+														name="perfil_id" id="perfil_3" value="3" checked>
+													<label class="form-check-label" for="perfil_3">Profesional</label>
+												</div>
+											</div>
+										</div>
+										<div class="col-12">
+											<hr class="mb-4">
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="titulo">Titulo </label> <input type="text"
+												class="form-control" id="titulo" placeholder=""
+												name="titulo" th:value="${usuarioEditar.getTitulo()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+										<div class="col-lg-6 mb-3">
+											<label for="fecha_de_ingreso">Fecha de Ingreso</label> <input
+												type="text" class="form-control input-"
+												id="fecha_de_ingreso" name="fecha_de_ingreso"
+												th:value="${usuarioEditar.fechaDeIngresoFommatoDMY()}">
+											<div class="invalid-feedback">Please enter a valid
+												email address for shipping updates.</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<hr class="mb-4">
+
+							<div class="row justify-content-center">
+								<button
+									class="d-flex justify-content-center btn btn-primary btn-lg "
+									type="submit">Enviar</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<!-- BR para ver el calendar -->
+				<br /> <br /> <br />
+			</div>
+		</main>
+	</div>
+
+	<!-- FOOTER y SCRIPT -->
+	<div th:insert="fragments/layout :: footer"></div>
+	<th:block th:insert="fragments/layout :: body/script"></th:block>
+
+</body>
+</html>

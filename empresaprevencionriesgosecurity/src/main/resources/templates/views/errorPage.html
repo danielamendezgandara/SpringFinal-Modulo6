@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout.html :: html_head">
+<meta charset="UTF-8">
+</head>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
+
+	<div>
+		<div th:insert="fragments/layout :: navbar"></div>
+
+		<main role="main" class="container my-5">
+			<h3 class="text-center">Error 404... Lo siento,ocurrió un error</h3>
+		</main>
+	</div>
+
+	<!-- FOOTER y SCRIPT -->
+	<div th:insert="fragments/layout :: footer"></div>
+	<th:block th:insert="fragments/layout :: body/script"></th:block>
+
+</body>

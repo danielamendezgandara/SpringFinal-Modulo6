@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="html_head">
+<meta charset="UTF-8">
+<title>Empresa prevención de riesgos</title>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/27de0eefa2.js"
+	crossorigin="anonymous"></script>
+<!--CSS pluggin data table-->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<!--CDN Bootstrap-->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+	crossorigin="anonymous" />
+<!--CSS Calendar-->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<!-- Hoja de estilo personaliada-->
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+
+	<!--NAVBAR-->
+	<div th:fragment="navbar" class="bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+			<a class="navbar-brand" href="#">G-01</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<!--Menu administrativo-->
+				<ul class="navbar-nav mr-auto"
+					th:if="${usuario!=null && usuario.getPerfilId()==1}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/inicio}">Inicio</a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-expanded="false">
+							Usuarios </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/listadoDeUsuarios}">Listado
+								de Usuarios</a> <a class="dropdown-item" th:href="@{/crearUsuario}">Crear
+								Usuario</a>
+						</div></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-expanded="false">
+							Pagos </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/enConstruccion}">Listado
+								Pago</a> <a class="dropdown-item" th:href="@{/enConstruccion}">Crear
+								Pago</a>
+						</div></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/enConstruccion}">Administrar chequeos</a></li>
+				</ul>
+
+
+				<!--Menu Cliente-->
+				<ul class="navbar-nav mr-auto"
+					th:if="${usuario!=null && usuario.getPerfilId()==2}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/inicio}">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/contacto}">Contacto</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-expanded="false">
+							Capacitación </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/capacitacion/crear}">Crear
+								Capacitación</a> <a class="dropdown-item"
+								th:href="@{/capacitacion/listartodas}">Listar Capacitaciones</a>
+							<a class="dropdown-item" th:href="@{/enConstruccion}">Administrar
+								Asistentes</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/enConstruccion}">Gestionar accidentes</a></li>
+				</ul>
+
+				<!--Menu Profesional-->
+				<ul class="navbar-nav mr-auto"
+					th:if="${usuario!=null && usuario.getPerfilId()==3}">
+					<li class="nav-item"><a class="nav-link" th:href="@{/inicio}">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/enConstruccion}">Listado Visitas</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/enConstruccion}">Responder checklist</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-expanded="false">
+							Asesorías </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/enConstruccion}">Listado
+								Asesorías</a> <a class="dropdown-item" th:href="@{/enConstruccion}">Crear
+								Asesorías</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/enConstruccion}">Reportes</a></li>
+				</ul>
+
+				<!-- Todos los usuarios -->
+				<ul class="navbar-nav ml-auto">
+					<li th:if="${usuario == null}" class="nav-item"><a
+						class="nav-link" th:href="@{/login}">SignIn
+							<i class="fa-solid fa-right-to-bracket"></i>
+					</a></li>
+
+					<li th:if="${usuario != null}" class="nav-item"><a
+						class="nav-link text-white" href="#"> Bienvenid@
+							<span th:text="${usuario.nick} +'-'"></span>
+							<span
+								th:text="${usuario.perfilId == 1 ? 'administrativo' : usuario.perfilId == 2 ? 'cliente' : 'profesional' }">
+							</span> <i class="fa-solid fa-user-check"></i>
+					</a></li>
+					<li th:if="${usuario != null}" class="nav-item"><a
+						class="nav-link" th:href="@{/cerrarsesion}">
+							SignOut <i class="fa-solid fa-right-from-bracket"></i>
+					</a></li>
+				</ul>
+
+			</div>
+		</nav>
+	</div>
+
+	<!-- FOOTER con Scripts -->
+	<div th:fragment="footer">
+		<footer class="text-muted bg-dark footer-margin" th:fragment="footer">
+			<div class="container py-3">
+				<p class="float-right">
+					<a href="#" class="text-light"><i
+						class="fa-solid fa-file-arrow-up fa-2x"></i></a>
+				</p>
+				<p class="text-center text-white">&copy; Prevención de Riesgos
+					2022. Todos los derechos reservados.</p>
+			</div>
+		</footer>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+		integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
+		crossorigin="anonymous"></script>
+
+	<!-- Otras par manejo de Calendario -->
+	<script type="text/javascript"
+		src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+	<!--CDN Fancybox-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+	<!--llamado a plugin data table-->
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+	<!--llamando al plugin data table extensión responsiva-->
+	<script
+		src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+	<!--llamado al codigo que vamos a crear para usar plugin data table-->
+	<script th:src="@{/js/dataTableFn.js}"></script>
+
+	<!--Main-->
+	<script th:src="@{/js/main.js}"></script>
+
+	<!--Muestra Formulario-->
+	<script th:src="@{/js/muestraFormularioSegunPerfil.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+2022-09-13 23:14:22.680  INFO 17112 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Starting EmpresaprevencionriesgosApplication using Java 17.0.2 on LAPTOP-RRVBEOT9 with PID 17112 (C:\Users\danie\eclipse-workspace\empresaprevencionriesgos\target\classes started by danie in C:\Users\danie\eclipse-workspace\empresaprevencionriesgos)
+2022-09-13 23:14:22.683  INFO 17112 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : No active profile set, falling back to 1 default profile: "default"
+2022-09-13 23:14:22.799  INFO 17112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-13 23:14:22.801  INFO 17112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-13 23:14:24.239  INFO 17112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-09-13 23:14:24.270  INFO 17112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
+2022-09-13 23:14:25.313  INFO 17112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2022-09-13 23:14:25.333  INFO 17112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 23:14:25.334  INFO 17112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-13 23:14:25.455  INFO 17112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 23:14:25.456  INFO 17112 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2654 ms
+2022-09-13 23:14:26.482  INFO 17112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-13 23:14:27.354  INFO 17112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-13 23:14:27.681  INFO 17112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-13 23:14:27.819  INFO 17112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-13 23:14:27.850  INFO 17112 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Started EmpresaprevencionriesgosApplication in 5.832 seconds (JVM running for 7.548)
+2022-09-13 23:14:27.860  INFO 17112 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Simple log statement with inputs 1, 2 and 3
+2022-09-13 23:16:04.501  INFO 17112 --- [RMI TCP Connection(5)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-09-13 23:16:04.643  INFO 17112 --- [RMI TCP Connection(5)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-13 23:16:04.724  INFO 17112 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-13 23:16:04.805  INFO 17112 --- [RMI TCP Connection(5)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-13 23:16:59.100  INFO 7012 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Starting EmpresaprevencionriesgosApplication using Java 17.0.2 on LAPTOP-RRVBEOT9 with PID 7012 (C:\Users\danie\eclipse-workspace\empresaprevencionriesgos\target\classes started by danie in C:\Users\danie\eclipse-workspace\empresaprevencionriesgos)
+2022-09-13 23:16:59.105  INFO 7012 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : No active profile set, falling back to 1 default profile: "default"
+2022-09-13 23:16:59.187  INFO 7012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-13 23:16:59.189  INFO 7012 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-13 23:17:00.381  INFO 7012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-09-13 23:17:00.415  INFO 7012 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 JDBC repository interfaces.
+2022-09-13 23:17:01.341  INFO 7012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2022-09-13 23:17:01.358  INFO 7012 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 23:17:01.359  INFO 7012 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-13 23:17:01.484  INFO 7012 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 23:17:01.485  INFO 7012 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2292 ms
+2022-09-13 23:17:02.304  INFO 7012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-13 23:17:02.887  INFO 7012 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-13 23:17:03.184  INFO 7012 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-13 23:17:03.281  INFO 7012 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-13 23:17:03.302  INFO 7012 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Started EmpresaprevencionriesgosApplication in 4.815 seconds (JVM running for 6.162)
+2022-09-13 23:17:46.594  INFO 7012 --- [RMI TCP Connection(3)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-09-13 23:17:46.624  INFO 7012 --- [RMI TCP Connection(3)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-13 23:17:46.648  INFO 7012 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-13 23:17:46.677  INFO 7012 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-13 23:18:04.756  INFO 1184 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Starting EmpresaprevencionriesgosApplication using Java 17.0.2 on LAPTOP-RRVBEOT9 with PID 1184 (C:\Users\danie\eclipse-workspace\empresaprevencionriesgos\target\classes started by danie in C:\Users\danie\eclipse-workspace\empresaprevencionriesgos)
+2022-09-13 23:18:04.760  INFO 1184 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : No active profile set, falling back to 1 default profile: "default"
+2022-09-13 23:18:04.880  INFO 1184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-13 23:18:04.880  INFO 1184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-13 23:18:05.968  INFO 1184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-09-13 23:18:06.002  INFO 1184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 0 JDBC repository interfaces.
+2022-09-13 23:18:06.891  INFO 1184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8099 (http)
+2022-09-13 23:18:06.907  INFO 1184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-13 23:18:06.908  INFO 1184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-13 23:18:07.008  INFO 1184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-13 23:18:07.009  INFO 1184 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2128 ms
+2022-09-13 23:18:07.803  INFO 1184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-13 23:18:08.298  INFO 1184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-13 23:18:08.606  INFO 1184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-13 23:18:08.723  INFO 1184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8099 (http) with context path ''
+2022-09-13 23:18:08.755  INFO 1184 --- [restartedMain] .a.e.EmpresaprevencionriesgosApplication : Started EmpresaprevencionriesgosApplication in 4.621 seconds (JVM running for 5.807)
+2022-09-13 23:18:46.551  INFO 1184 --- [http-nio-8099-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-13 23:18:46.552  INFO 1184 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-13 23:18:46.554  INFO 1184 --- [http-nio-8099-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-09-13 23:18:46.652  INFO 1184 --- [http-nio-8099-exec-1] c.a.e.controller.Inicio                  : Simple log statement with inputs 1, 2 and 3
+2022-09-13 23:19:14.608  INFO 1184 --- [RMI TCP Connection(3)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-09-13 23:19:14.639  INFO 1184 --- [RMI TCP Connection(3)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-13 23:19:14.643  INFO 1184 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-09-13 23:19:14.684  INFO 1184 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-13 23:19:14.716  INFO 1184 --- [RMI TCP Connection(3)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

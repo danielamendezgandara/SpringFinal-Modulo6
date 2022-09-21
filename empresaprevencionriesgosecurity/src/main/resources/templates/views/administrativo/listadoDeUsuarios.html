@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/layout.html :: html_head">
+<meta charset="UTF-8">
+</head>
+<body class="min-vh-100 d-flex flex-column justify-content-between">
+
+	<div>
+		<div th:insert="fragments/layout :: navbar"></div>
+
+		<main role="main" class="container my-5">
+
+			<div class="my-5 text-center">
+				<h2>Listado de todos los usuarios</h2>
+			</div>
+
+			<!-- Alert en para ingreso de usuario -->
+			<div class="text-center my-3">
+
+				<div th:if="${postResponse==true and respuestaEliminacion==true}"
+					class="alert alert-success alert-dismissible fade show"
+					role="alert">
+					El usuario rut <span th:text="${rut}"></span> fue eliminado
+					exitosamente.
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div th:if="${postResponse==true and respuestaEliminacion==false}"
+					class="alert alert-danger alert-dismissible fade show" role="alert">
+					El usuario rut <span th:text="${rut}"></span> no se pudo eliminar.
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+
+			<table id="tabla-usuarios" class="table table-striped table-bordered"
+				style="width: 100%">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 30%">Nick</th>
+						<th scope="col">Password</th>
+						<th scope="col" style="width: 30%">Rut</th>
+						<th scope="col">Perfil</th>
+						<th scope="col" style="width: 50%">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user: ${listaUsuarios}">
+						<td th:text="${user.getNick()}"></td>
+						<td th:text="${user.getPassword1()}"></td>
+						<td th:text="${user.getRut()}"></td>
+						<td th:text="${user.getPerfilNombre()}"></td>
+						<td class="text-center">
+							<div class="d-inline-block">
+								<a th:href="${user.urlEditarUsuario()}"
+									class="btn btn-outline-success"><i class="fa-solid fa-pen"></i></a>
+								<a th:if="${!user.rut.equals(usuario.getRut())}"
+									th:href="${user.urlEliminarUsuario()}"
+									class="btn btn-outline-danger ml-3"><i
+									class="fa-solid fa-trash"></i></a> <a
+									th:if="${user.rut.equals(usuario.getRut())}" href="#"
+									class="btn btn-outline-secondary ml-3"><i
+									class="fa-solid fa-trash"></i></a>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+
+	</div>
+
+	<!-- FOOTER y SCRIPT -->
+	<div th:insert="fragments/layout :: footer"></div>
+	<th:block th:insert="fragments/layout :: body/script"></th:block>
+
+</body>
